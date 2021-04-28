@@ -14,7 +14,7 @@ server.use(cors());
 //Habilitar express.JSON
 server.use(express.json({extended:true}));
 //Puerto del server
-const PORT = process.env.PORT || 4000;
+const port = process.env.port || 4000;
 
 //Importar rutas
 server.use('/api/users', require('./Routes/users'));
@@ -29,6 +29,6 @@ server.use('/api/tareas', require('./Routes/tareas'));
 //     response.send('Hola Mundo');
 // });
 
-server.listen(PORT, () =>{
-    console.log(`El servidor esta escuchando por el puerto ${PORT}`);
+server.listen(port,'0.0.0.0 ',() =>{
+    console.log(`El servidor esta escuchando por el puerto ${port}`);
 })
