@@ -9,7 +9,8 @@ const server = express();
 connectDB;
 
 //Habilitar CORS
-server.use(cors());
+server.use(cors({origin: true, credentials:true}));
+server.options("*", cors());
 
 //Habilitar express.JSON
 server.use(express.json({extended:true}));
@@ -29,6 +30,6 @@ server.use('/api/tareas', require('./Routes/tareas'));
 //     response.send('Hola Mundo');
 // });
 
-server.listen(port,'0.0.0.0 ',() =>{
+server.listen(port,() =>{
     console.log(`El servidor esta escuchando por el puerto ${port}`);
 })
